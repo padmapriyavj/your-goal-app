@@ -3,7 +3,7 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
-  background-color: bl#f9eae3;
+  background-color: #f9eae3;
 }
 
 .mat-toolbar {
@@ -21,6 +21,8 @@ body {
 .mat-sidenav {
   width: 250px; 
   background-color: #2e3a46; 
+  border-radius: 0; 
+  box-shadow: none; 
 }
 
 .mat-sidenav-content {
