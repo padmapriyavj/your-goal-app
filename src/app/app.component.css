@@ -1,0 +1,31 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: bl#f9eae3;
+}
+
+.mat-toolbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2; 
+}
+
+.mat-sidenav-container {
+  height: 100vh; 
+}
+
+.mat-sidenav {
+  width: 250px; 
+  background-color: #2e3a46; 
+}
+
+.mat-sidenav-content {
+  margin: 0;
+  padding: 0;
+  height: calc(100vh - 64px); 
+  overflow: auto;
+}

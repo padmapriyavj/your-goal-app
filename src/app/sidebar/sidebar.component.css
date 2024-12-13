@@ -1,0 +1,45 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Make the sidebar span the full height */
+  }
+  
+  .sidebar-header {
+    background-color: #e5989b;
+    padding: 16px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+    color: white;
+  }
+  
+  .sidebar-nav {
+    padding: 0;
+    margin: 0;
+  }
+  
+  .sidebar-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .sidebar-nav ul li {
+    margin: 16px 0;
+    text-align: center;
+  }
+  
+  .sidebar-nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    display: block;
+    padding: 8px 16px;
+  }
+  
+  .sidebar-nav ul li a:hover {
+    background-color: #3d4955;
+    border-radius: 4px;
+  }
+  
