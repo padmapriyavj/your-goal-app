@@ -6,11 +6,24 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class GoalService {
-  private apiUrl = 'http://localhost:8000/goal/create';
+  private baseUrl = 'http://localhost:8000/goal';
 
   constructor(private http: HttpClient) {}
 
-  createGoal(goalData: any): Observable<any> {
-    return this.http.post(this.apiUrl, goalData);
+  getAllGoals(): Observable<any> {
+    return this.http.get(`${this.baseUrl}/getAll`);
+  }
+
+
+  createGoal(goal: any): Observable<any> {
+    return this.http.post(`${this.baseUrl}/create`, goal);
+  }
+
+  updateGoal(goalId: string, updatedGoal: any): Observable<any> {
+    return this.http.patch(`${this.baseUrl}/update/${goalId}`, updatedGoal);
+  }
+
+  deleteGoal(goalId: string): Observable<any> {
+    return this.http.delete(`${this.baseUrl}/delete/${goalId}`);
   }
 }

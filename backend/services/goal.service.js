@@ -29,6 +29,9 @@ module.exports.createGoalDBService = async (goalDetails) => {
 };
 
 module.exports.updateGoalDBService = async (id, goalDetails) => {
+
+    console.log('Updating Goal ID:', id);
+    console.log('Updating Details:', goalDetails);
     try {
         console.log(goalDetails);
 

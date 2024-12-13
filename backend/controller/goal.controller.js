@@ -15,8 +15,8 @@ var createGoalControllerFn = async (req, res) =>
     }
 
     var updateGoalController = async (req, res) => {
-        console.log(req.params.id);
-        console.log(req.body);
+        console.log('Request Params:', req.params);
+        console.log('Request Body:', req.body)
     
         var result = await goalService.updateGoalDBService(req.params.id, req.body);
         if (result) {
