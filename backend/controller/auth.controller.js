@@ -1,22 +1,28 @@
 const authService = require('../services/auth.service');
 
 module.exports.signupController = async (req, res) => {
-  try {
-    const { username, email, password } = req.body;
-
-    if (!username || !email || !password) {
-      return res.status(400).json({ success: false, message: 'All fields are required' });
+    try {
+      console.log("SignupController called with data:", req.body); // Log the request data
+  
+      const { username, email, password } = req.body;
+  
+      if (!username || !email || !password) {
+        console.error("Validation failed: Missing fields");
+        return res.status(400).json({ success: false, message: 'All fields are required' });
+      }
+  
+      const result = await authService.signupService({ username, email, password });
+      console.log("User registered successfully:", result); // Log the result
+      return res.status(201).json({ success: true, message: 'User registered successfully', data: result.user });
+    } catch (error) {
+      console.error("Error in signupController:", error); // Log the error
+      if (error.code === 11000) {
+        return res.status(409).json({ success: false, message: 'Email or username already exists' });
+      }
+      res.status(500).json({ success: false, message: 'Internal server error' });
     }
-
-    const result = await authService.signupService({ username, email, password });
-    return res.status(201).json({ success: true, message: 'User registered successfully', data: result.user });
-  } catch (error) {
-    if (error.code === 11000) {
-      return res.status(409).json({ success: false, message: 'Email or username already exists' });
-    }
-    res.status(500).json({ success: false, message: 'Internal server error' });
-  }
-};
+  };
+  
 
 module.exports.loginController = async (req, res) => {
   try {
