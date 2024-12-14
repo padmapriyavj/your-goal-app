@@ -18,6 +18,9 @@
     <div class="register-link">
       New user? <a routerLink="/register">Register here</a>
     </div>
+    <div *ngIf="loginError" class="error-message">
+      {{ loginError }}
+    </div>
     
   </form>
 </div>

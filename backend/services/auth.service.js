@@ -1,5 +1,6 @@
 const User = require('../models/user.model');
 const jwt = require('jsonwebtoken');
+const bcrypt = require('bcrypt');
 
 module.exports.signupService = async (userDetails) => {
     try {
@@ -36,4 +37,31 @@ module.exports.loginService = async (email, password) => {
     console.error('Error in loginService:', error);
     throw error;
   }
+};
+
+module.exports.editUserService = async (userId, updates) => {
+    try {
+        const updateData = {};
+
+        if (updates.username) {
+            updateData.username = updates.username;
+        }
+        if (updates.email) {
+            updateData.email = updates.email;
+        }
+        if (updates.password) {
+            const salt = await bcrypt.genSalt(10);
+            updateData.password = await bcrypt.hash(updates.password, salt);
+        }
+
+        const updatedUser = await User.findByIdAndUpdate(userId, updateData, {
+            new: true, 
+            runValidators: true, 
+        });
+
+        return updatedUser;
+    } catch (error) {
+        console.error('Error in editUserService:', error);
+        throw error;
+    }
 };
