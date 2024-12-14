@@ -48,3 +48,25 @@ module.exports.loginController = async (req, res) => {
     res.status(500).json({ success: false, message: 'Internal server error' });
   }
 };
+
+module.exports.editUserController = async (req, res) => {
+    try {
+      const { userId } = req.params; 
+      const { username, email, password } = req.body; 
+  
+      if (!username && !email && !password) {
+        return res.status(400).json({ success: false, message: 'At least one field is required to update' });
+      }
+  
+      const updatedUser = await authService.editUserService(userId, { username, email, password });
+  
+      if (!updatedUser) {
+        return res.status(404).json({ success: false, message: 'User not found' });
+      }
+  
+      res.status(200).json({ success: true, message: 'User updated successfully', data: updatedUser });
+    } catch (error) {
+      console.error('Error in editUserController:', error);
+      res.status(500).json({ success: false, message: 'Internal server error' });
+    }
+  };

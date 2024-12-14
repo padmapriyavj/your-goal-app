@@ -22,6 +22,7 @@ import { AuthService } from '../services/auth.service';
 })
 export class LoginComponent {
   loginForm: FormGroup;
+  loginError: string | null = null;
 
   constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) {
     this.loginForm = this.fb.group({
@@ -35,10 +36,14 @@ export class LoginComponent {
       this.authService.login(this.loginForm.value).subscribe(
         (response) => {
           console.log('Login successful:', response);
-          this.router.navigate(['/dashboard']); // Redirect to dashboard after login
+          if (response.token) {
+            this.authService.saveToken(response.token); 
+            this.router.navigate(['/dashboard']); 
+          }
         },
         (error) => {
           console.error('Login failed:', error);
+          this.loginError = 'Invalid email or password'; 
         }
       );
     }

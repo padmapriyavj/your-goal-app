@@ -7,7 +7,7 @@
       <li><a routerLink="/goals">Your Goals</a></li>
       <li><a routerLink="/profile">Profile</a></li>
       <li><a routerLink="/settings">User Settings</a></li>
-      <li><a routerLink="/login">Login</a></li>
+      <li *ngIf="!isLoggedIn"><a routerLink="/login">Login</a></li>
     </ul>
   </nav>
   
