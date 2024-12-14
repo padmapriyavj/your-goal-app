@@ -1,12 +1,8 @@
-
-
-
 var express = require('express');
-
 const router = express.Router();
 
-var goalController =  require('../controller/goal.controller');
-const authRoutes = require('./auth.routes'); // New auth routes
+var goalController = require('../controller/goal.controller');
+const authRoutes = require('./auth.routes'); 
 
 console.log('goalController:', goalController);
 
@@ -19,4 +15,5 @@ router.route('/goal/update/:id').patch(goalController.updateGoalController);
 router.route('/goal/delete/:id').delete(goalController.deleteGoalController);
 
 router.use('/auth', authRoutes);
+
 module.exports = router;

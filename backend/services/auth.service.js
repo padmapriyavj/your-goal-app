@@ -2,15 +2,18 @@ const User = require('../models/user.model');
 const jwt = require('jsonwebtoken');
 
 module.exports.signupService = async (userDetails) => {
-  try {
-    const user = new User(userDetails);
-    await user.save();
-    return { success: true, user };
-  } catch (error) {
-    console.error('Error in signupService:', error);
-    throw error;
-  }
-};
+    try {
+      console.log("SignupService called with userDetails:", userDetails); 
+      const user = new User(userDetails);
+      const savedUser = await user.save(); 
+      console.log("User successfully created:", savedUser); 
+      return { success: true, user: savedUser };
+    } catch (error) {
+      console.error("Error in signupService:", error); 
+      throw error; 
+    }
+  };
+  
 
 module.exports.loginService = async (email, password) => {
   try {
