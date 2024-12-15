@@ -6,7 +6,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class AuthService {
-  private baseUrl = 'http://localhost:8000/auth'; 
+  private baseUrl = 'https://your-goal-backend.onrender.com/auth'; 
   private loggedIn = new BehaviorSubject<boolean>(this.hasToken()); 
   isLoggedIn$ = this.loggedIn.asObservable(); 
   constructor(private http: HttpClient) {

@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class GoalService {
-  private baseUrl = 'http://localhost:8000/goal';
+  private baseUrl = 'https://your-goal-backend.onrender.com/goal';
 
   constructor(private http: HttpClient) {}
 
