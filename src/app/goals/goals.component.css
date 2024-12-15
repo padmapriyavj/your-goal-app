@@ -1,83 +1,62 @@
 .form-container {
-    padding: 24px;
-    border-radius: 8px;
-    max-width: 900px;
-    margin: 0 auto;
-  }
-  
-  h1 {
-    text-align: left;
-    margin-bottom: 16px;
-    color: #333;
-    font-size: 24px;
-    font-weight: bold;
-  }
-  
-  .form-row {
-    display: flex;
-    gap: 16px;
-    margin-bottom: 16px;
-  }
-  
-  mat-form-field {
-    flex: 1;
-  }
-  
-  button {
-    margin-top: 16px;
-    display: block;
-  }
+  text-align: center;
+  margin: 0 auto;
+  padding: 24px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background: white;
+}
 
-  .mat-elevation-z8 {
-    border-radius: 8px;
-    border: 1px solid #ddd; 
-    overflow: hidden;
-    margin: 20px 0;
-  }
-  
-  .mat-header-row {
-    background-color: #e57f84; 
-    color: white;
-    font-weight: bold;
-    text-transform: uppercase;
-  }
-  
-  .mat-row:nth-child(odd) {
-    background-color: #f9f9f9; 
-  }
-  
-  .mat-row:nth-child(even) {
-    background-color: white;
-  }
-  
-  .mat-cell {
-    padding: 12px 16px;
-    text-align: center;
-    font-size: 14px;
-    color: #333; 
-  }
-  
-  .mat-header-cell {
-    padding: 12px 16px;
-    text-align: center;
-    font-size: 14px;
-  }
-  
-  .mat-row:hover {
-    background-color: #fde6e6; 
-  }
-  
-  .mat-paginator {
-    border-top: 1px solid #ddd; 
-    padding: 8px 16px;
-    font-size: 14px;
-  }
-  .mat-cell.actions-cell {
-    display: flex;
-    justify-content: center; 
-    align-items: center; 
-    gap: 12px; 
-    text-align: center;
+.form-row {
+  display: flex;
+  gap: 16px;
+}
+
+mat-form-field {
+  flex: 1;
+}
+
+button {
+  display: block;
+  font-size: 14px; 
+  padding: 4px 20px; 
+}
+
+.mat-elevation-z8 {
+  border-radius: 8px;
+  border: 1px solid #ddd; 
+  overflow: hidden;
+  margin: 16px 0;
+}
+
+.mat-row:nth-child(odd) {
+  background-color: #f4eae6; 
+}
+
+.mat-row:nth-child(even) {
+  background-color: white;
+}
+
+.mat-cell {
+  padding: 12px 16px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.mat-header-cell {
+  padding: 12px 16px;
+  text-align: center;
+  font-size: 14px;
+  background-color: #e57f84;
+}
+
+.mat-row:hover {
+  background-color: #fde6e6; 
+}
+
+.mat-paginator {
+  border-top: 1px solid #ddd; 
+  padding: 8px 16px;
+  font-size: 14px;
 }
 
 .mat-cell.actions-cell {
@@ -86,12 +65,4 @@
   align-items: center; 
   gap: 12px; 
   text-align: center;
-}
-
-button {
-  text-transform: none; 
-  font-size: 14px; 
-  padding: 4px 8px; 
-  min-width: auto; 
-  white-space: nowrap; 
 }

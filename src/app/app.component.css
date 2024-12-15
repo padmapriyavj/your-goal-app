@@ -1,9 +1,14 @@
 html,
+
+style {
+  background-color: black;
+}
 body {
   height: 100%;
+  width: 100%;
   margin: 0;
   padding: 0;
-  background-color: #f9eae3;
+  background-color: #e57f84;
 }
 
 .mat-toolbar {
@@ -11,23 +16,23 @@ body {
   top: 0;
   left: 0;
   right: 0;
-  z-index: 2; 
-}
-
-.mat-sidenav-container {
-  height: 100vh; 
+  z-index: 2;
 }
 
 .mat-sidenav {
-  width: 250px; 
-  background-color: #2e3a46; 
+  width: 250px;
+  background-color: #2f5061; 
   border-radius: 0; 
-  box-shadow: none; 
+  border: none;
+  overflow: auto;
+}
+
+.mat-sidenav-container {
+  height: 100vh; /* Full height of the viewport */
 }
 
 .mat-sidenav-content {
   margin: 0;
   padding: 0;
-  height: calc(100vh - 64px); 
-  overflow: auto;
+  height: calc(100vh);
 }

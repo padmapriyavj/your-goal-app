@@ -7,40 +7,31 @@
 
 .sidebar-header {
   background-color: #e57f84;
-  padding: 16px;
-  text-align: center;
+  padding: 20px;
+  text-align: left;
   font-weight: bold;
-  font-size: 20px;
+  font-size: 30px;
   color: white;
   border-radius: 0; /* Ensure the header also has no rounded corners */
 }
 
-.sidebar-nav {
+.sidebar-nav ul{
   padding: 0;
   margin: 0;
-}
-
-.sidebar-nav ul {
   list-style: none;
-  padding: 0;
-  margin: 0;
 }
 
-.sidebar-nav ul li {
-  margin: 16px 0;
-  text-align: center;
-}
-
-.sidebar-nav ul li a {
+.sidebar-nav ul a{
+  text-align: left;
   text-decoration: none;
   color: white;
   font-weight: bold;
-  font-size: 16px;
+  font-size: 18px;
   display: block;
-  padding: 8px 16px;
+  padding: 20px 24px;
   border-radius: 0; /* Remove hover rounded corners */
 }
 
 .sidebar-nav ul li a:hover {
-  background-color: #3d4955;
+  background-color: #264757;
 }

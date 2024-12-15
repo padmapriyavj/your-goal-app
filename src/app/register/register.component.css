@@ -1,21 +1,13 @@
 .form-container {
-  padding: 24px;
-  max-width: 400px;
-  margin: 0 auto;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-h1 {
   text-align: center;
-  color: #333;
-  margin-bottom: 16px;
+  margin: 0 auto;
+  padding: 24px 24px 24px 24px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background: white;
 }
 
 mat-form-field {
   width: 100%;
-  margin-bottom: 16px;
 }
 
 button {
@@ -29,7 +21,7 @@ button {
 }
 
 a {
-  color: #1976d2;
+  color: #3c8cd6;
   text-decoration: none;
 }
 

@@ -1,10 +1,8 @@
 .dashboard-container {
-    text-align: center;
-    padding: 20px;
-  }
-  
-  canvas {
-    max-width: 600px;
-    margin: 0 auto;
-  }
-  
+  text-align: center;
+  padding: 24px 24px 24px 24px;
+}
+
+canvas {
+  max-block-size: 400px;
+}

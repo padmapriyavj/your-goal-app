@@ -2,15 +2,5 @@ html,
 body {
   height: 100%;
   margin: 0;
-}
-
-.mat-sidenav-container {
-  height: 100vh; /* Full height of the viewport */
-}
-
-.mat-sidenav {
-  width: 250px; /* Adjust the sidebar width as needed */
-  background-color: #f8f8f8; /* Sidebar background */
-  padding: 16px;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  font-family: Trebuchet, Arial, sans-serif;
 }
