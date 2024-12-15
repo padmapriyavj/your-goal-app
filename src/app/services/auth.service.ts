@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
@@ -28,8 +28,23 @@ export class AuthService {
 
   saveToken(token: string): void {
     localStorage.setItem('authToken', token);
+    const decodedUser = this.decodeToken(token); 
+    localStorage.setItem(
+      'currentUser',
+      JSON.stringify({
+        id: decodedUser.id,
+        username: decodedUser.username,
+        email: decodedUser.email,
+      })
+    );
     this.loggedIn.next(true); 
   }
+  
+  private decodeToken(token: string): any {
+    const payload = token.split('.')[1]; 
+    return JSON.parse(atob(payload)); 
+  }
+  
 
   logout(): void {
     localStorage.removeItem('authToken'); 
@@ -38,6 +53,17 @@ export class AuthService {
 
   isAuthenticated(): boolean {
     return this.hasToken();
+  }
+
+  private getAuthHeaders(): HttpHeaders {
+    const token = localStorage.getItem('authToken');
+    return new HttpHeaders({ Authorization: `Bearer ${token}` });
+  }
+
+  editUser(userId: string, updates: any): Observable<any> {
+    return this.http.patch(`${this.baseUrl}/edit/${userId}`, updates, {
+      headers: this.getAuthHeaders(),
+    });
   }
 
 }

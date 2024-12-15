@@ -1,1 +1,33 @@
-<p>profile works!</p>
+<div class="form-container">
+    <h1>Edit Profile</h1>
+    <form [formGroup]="profileForm" (ngSubmit)="saveProfile()">
+      <div class="form-row">
+        <mat-form-field appearance="outline">
+          <mat-label>Username</mat-label>
+          <input matInput formControlName="username" />
+        </mat-form-field>
+      </div>
+      <div class="form-row">
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="email" />
+        </mat-form-field>
+      </div>
+      <div class="form-row">
+        <mat-form-field appearance="outline">
+          <mat-label>Password</mat-label>
+          <input matInput formControlName="password" type="password" />
+        </mat-form-field>
+      </div>
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit"
+        [disabled]="profileForm.invalid || isSubmitting"
+      >
+        Save Changes
+      </button>
+      <p *ngIf="message" class="message">{{ message }}</p>
+    </form>
+  </div>
+  
