@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -10,20 +10,26 @@ export class GoalService {
 
   constructor(private http: HttpClient) {}
 
+  private getAuthHeaders(): HttpHeaders {
+    const token = localStorage.getItem('authToken');
+    return new HttpHeaders({ Authorization: `Bearer ${token}` });
+  }
+
+
   getAllGoals(): Observable<any> {
-    return this.http.get(`${this.baseUrl}/getAll`);
+    return this.http.get(`${this.baseUrl}/getAll`, { headers: this.getAuthHeaders() });
   }
 
 
   createGoal(goal: any): Observable<any> {
-    return this.http.post(`${this.baseUrl}/create`, goal);
+    return this.http.post(`${this.baseUrl}/create`, goal,{ headers: this.getAuthHeaders() });
   }
 
   updateGoal(goalId: string, updatedGoal: any): Observable<any> {
-    return this.http.patch(`${this.baseUrl}/update/${goalId}`, updatedGoal);
+    return this.http.patch(`${this.baseUrl}/update/${goalId}`, updatedGoal , { headers: this.getAuthHeaders() });
   }
 
   deleteGoal(goalId: string): Observable<any> {
-    return this.http.delete(`${this.baseUrl}/delete/${goalId}`);
+    return this.http.delete(`${this.baseUrl}/delete/${goalId}`, { headers: this.getAuthHeaders() });
   }
 }
