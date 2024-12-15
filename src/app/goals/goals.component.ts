@@ -98,7 +98,6 @@ export class GoalsComponent implements AfterViewInit, OnInit {
       console.log('Payload being sent:', goalData);
   
       if (this.isEdit && this.editGoalId) {
-        // Update existing goal
         this.goalService.updateGoal(this.editGoalId, goalData).subscribe(
           (response) => {
             this.isSubmitting = false;
@@ -121,7 +120,6 @@ export class GoalsComponent implements AfterViewInit, OnInit {
           }
         );
       } else {
-        // Add a new goal
         this.goalService.createGoal(goalData).subscribe(
           (response) => {
             this.isSubmitting = false;
@@ -144,6 +142,7 @@ export class GoalsComponent implements AfterViewInit, OnInit {
       }
     }
   }
+  
   
 
   deleteGoal(goalId: string) {

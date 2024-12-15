@@ -1,8 +1,8 @@
 var goalModel = require('../models/goal.model');
 
-module.exports.getDataFromDBService = async () => {
+module.exports.getDataFromDBService = async (userId) => {
     try {
-        const goals = await goalModel.find({});
+        const goals = await goalModel.find({userId});
         return goals; 
     } catch (error) {
         console.error('Error fetching goals:', error);
@@ -19,6 +19,7 @@ module.exports.createGoalDBService = async (goalDetails) => {
         goalModelData.startDate = goalDetails.startDate;
         goalModelData.endDate = goalDetails.endDate;
         goalModelData.status = goalDetails.status;
+        goalModelData.userId = goalDetails.userId;
 
         await goalModelData.save(); 
         return true; 

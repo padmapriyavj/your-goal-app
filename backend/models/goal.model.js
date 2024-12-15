@@ -22,7 +22,10 @@ var goalSchema = new Schema({
         type: String,
         enum: ['in progress', 'completed', 'not started'], 
         required: true
-    }
+    },
+    userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true }, // Link goal to user
+}, {
+    timestamps: true,
 });
 
 module.exports = mongoose.model('goals', goalSchema);
